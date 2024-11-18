@@ -1,5 +1,5 @@
 # Use a lightweight Python image
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 # Set a working directory in the container
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 443
 
-# Command to run the application with Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:3000", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:443", "app:app"]
+
