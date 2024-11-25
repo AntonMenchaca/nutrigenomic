@@ -54,7 +54,7 @@ def random_recipe():
     
     cursor = conn.cursor()
     try:
-        cursor.execute("SELECT * FROM recipes ORDER BY RANDOM() LIMIT 1;")  # Modify 'recipes' to your table name
+        cursor.execute("SELECT * FROM recipes ORDER BY RANDOM() LIMIT 1;") 
         random_row = cursor.fetchone()
         column_names = [desc[0] for desc in cursor.description]
         random_recipe = dict(zip(column_names, random_row))
